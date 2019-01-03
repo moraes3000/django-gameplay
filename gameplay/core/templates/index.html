@@ -23,24 +23,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
+
+                    {% for categoria in categorias %}
                     <li class="nav-item ">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">{{ categoria.nome }}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Mega Drive</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Snes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">PC</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">GBA</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">N64</a>
-                    </li>
+
+                    {% endfor %}
+
 
                 </ul>
             </div>
@@ -52,20 +42,11 @@
             <div class="col-sm-3">
                 <div class="card" >
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">  <a class="" href="#">DK 1</a></li>
-                        <li class="list-group-item">  <a class=" " href="#">DK 1</a></li>
-                        <li class="list-group-item">  <a class=" " href="#">Side Pocket</a></li>
-                        <li class="list-group-item">  <a class=" " href="#">Super Mario World </a></li>
-                        <li class="list-group-item">  <a class=" " href="#">Mega Man </a></li>
-                        <li class="list-group-item">  <a class=" " href="#">Mario Kart </a></li>
-                        <li class="list-group-item">  <a class=" " href="#">Bomber Man </a></li>
-                        <li class="list-group-item">  <a class=" " href="#">Mortal Kombat II </a></li>
-                        <li class="list-group-item">  <a class=" " href="#">Top Gear </a></li>
-                        <li class="list-group-item">  <a class=" " href="#">Aladdin</a></li>
-                        <li class="list-group-item">  <a class=" " href="#">Earthworm Jim
-                        </a></li>
-                        <li class="list-group-item">  <a class=" " href="#">Super Metroid</a></li>
-                        <li class="list-group-item">  <a class=" " href="#">Uniracers</a></li>
+                        {% for jogo in jogos %}
+                            <li class="list-group-item">  <a class="" href="#">{{ jogo.nome }}</a></li>
+
+                        {% endfor %}
+
 
 
 

@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'gameplay.core',
-
+    'gameplay.categoria',
 
 ]
 
@@ -70,6 +70,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                #context
+                'gameplay.categoria.context_processors.categories',
+                'gameplay.categoria.context_processors.jogos'
             ],
         },
     },
