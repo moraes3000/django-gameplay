@@ -1,0 +1,11 @@
+{% extends 'core/base-admin.html' %}
+
+{% block container-admin %}
+    <h2>Deletar </h2>
+    <form method="post">{% csrf_token %}
+        <p>Deseja deletar o Capitulo: "{{ object }}" do jogo "{{ object.chave_estrangeira }}"?</p>
+        <input type="submit" value="Confirmar" class="btn btn-success">
+        <a href="#" onclick="javascript:history.back()" class="btn btn-danger">Voltar</a>
+    </form>
+
+{% endblock %}

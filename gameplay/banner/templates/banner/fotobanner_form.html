@@ -1,0 +1,14 @@
+{% extends 'core/base-admin.html' %}
+{% load bootstrap %}
+
+
+{% block container-admin %}
+    <h2>Cadastrar nova Foto Bannner</h2>
+       <form method="POST" action=""  enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form|bootstrap }}
+        <input type="submit" value="Salvar" class="btn btn-success">
+        <a href="#" onclick="javascript:history.back()" class="btn btn-danger">Voltar</a>
+    </form>
+{% endblock %}

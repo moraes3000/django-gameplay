@@ -1,0 +1,38 @@
+{% extends 'core/base-admin.html' %}
+
+{% block container-admin %}
+    <h2>Lista de Capitulos</h2>
+    <a href="{% url 'CapituloCreateView' %}" class="btn btn-success m-2">novo capitulo</a>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <th>Id</th>
+        <th>Capitulo</th>
+        <th>Jogo</th>
+        <th>Ação</th>
+        </thead>
+        {% for capitulo in object_list %}
+            <tr>
+                <td>{{ capitulo.id }}</td>
+                <td>{{ capitulo.nome }}</td>
+                <td>{{ capitulo.chave_estrangeira }}</td>
+                <td>
+                    <a href="" class="btn btn-info">
+                        Vizualizar
+                    </a>
+                    <a href="{% url 'CapituloUpdate' capitulo.pk  %}" class="btn btn-success">
+                        Editar
+                    </a>
+                    <a href="{% url 'CapituloDelete' capitulo.pk %}" class="btn btn-danger">
+                        Excluir
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'core/base-admin.html' %}
+
+{% block container-admin %}
+    <h2>Lista de banners</h2>
+    <a href="{% url 'BannerCreateView' %}" class="btn btn-success m-2">novo banner</a>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <th>Id</th>
+        <th>banner</th>
+        <th>Jogo</th>
+        <th>Ação</th>
+        </thead>
+        {% for banner in object_list %}
+            <tr>
+                <td>{{ banner.id }}</td>
+                <td>{{ banner.nome }}</td>
+                <td>{{ banner.chave_estrangeira_jogo }}</td>
+                <td>
+                    <a href="" class="btn btn-info">
+                        Vizualizar
+                    </a>
+                    <a href="{% url 'BannerUpdate' banner.pk %}" class="btn btn-success">
+                        Editar
+                    </a>
+                    <a href="{% url 'BannerDeleteView' banner.pk %}" class="btn btn-danger">
+                        Excluir
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+
+
+
+
+{% endblock %}

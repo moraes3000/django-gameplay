@@ -1,0 +1,25 @@
+{% extends 'core/base-blog.html' %}
+
+{% block container %}
+
+    <h2> {{ object }}</h2>
+
+    <div class="row">
+        <div class="col-lg-6">
+            {{ objects.url }}
+            {#            <img class="img-fluid rounded mb-4" src="http://placehold.it/750x450" alt="">#}
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="{{ object.iframe |safe }}"
+                        allowfullscreen></iframe>
+            </div>
+
+
+        </div>
+        <div class="col-lg-6">
+            <h2>{{ object }}</h2>
+
+            {{ object.descricao |safe }}
+
+        </div>
+    </div>
+{% endblock %}

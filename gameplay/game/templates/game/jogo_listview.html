@@ -1,0 +1,52 @@
+{% extends 'core/base-blog.html' %}
+{% load static %}
+{% block container %}
+    <h2>Lista de jogossss</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="bg-light border-right" id="sidebar-wrapper">
+
+
+                <div class="list-group list-group-flush">
+                    {% for jogo in object_list %}
+                        <a href="{% url 'CapituloJogoListView' jogo.pk %}"
+                           class="list-group-item list-group-item-action bg-light">{{ jogo.nome }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+
+
+        </div>
+
+            <div class="col order-sm-2">
+
+
+            <div class="row">
+                {% for jogo in object_list %}
+                    <div class="col-lg-4 mb-4">
+                        <a href="{% url 'CapituloJogoListView' jogo.pk %}">
+                            <div class="card h-100">
+                                {% if  jogo.imagem %}
+                                    <img class="card-img-top" src="{{ jogo.imagem.url }}" alt="Card image cap">
+                                {% else %}
+                                    <img class="card-img-top" src="http://placehold.it/750x300"
+                                         alt="Card image cap">
+                                {% endif %}
+
+                                <h4 class="card-header">{{ jogo.nome|safe }}</h4>
+
+
+                            </div>
+                        </a>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

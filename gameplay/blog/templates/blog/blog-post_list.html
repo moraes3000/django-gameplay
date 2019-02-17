@@ -1,0 +1,40 @@
+{% extends 'core/base-blog.html' %}
+{% load static %}
+{% block container %}
+
+    <div class="row">
+        {% for post in object_list %}
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+
+                    {% if  post.imagem.url %}
+                         <img class="card-img-top" src="{{ post.imagem.url }}" alt="Card image cap">
+                    {% else %}
+                         <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+                    {% endif %}
+
+                    <h4 class="card-header">{{ post.nome|safe }}</h4>
+                    <div class="card-body">
+                        {% if post.sumario %}
+                            {{ post.sumario }}
+                        {% else %}
+                             {{ post.descricao  |safe |truncatewords:10  }}
+                        {% endif %}
+
+
+
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">Saibe mais</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+    <!-- /.row -->
+
+
+{% endblock %}
+
+

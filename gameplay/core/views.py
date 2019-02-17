@@ -1,11 +1,6 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
 # Create your views here.
-from ..categoria.models import CategoriaModel
-
-def home(request):
-    # context = {
-    #     'categorias' : CategoriaModel.objects.all()
-    # }
-
-    return render(request, 'index.html')
+class AdminTemplateView(TemplateView):
+    template_name = "core/base-admin.html"

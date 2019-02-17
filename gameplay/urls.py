@@ -16,10 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+
+
+from django.urls import include, path
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 import gameplay.core.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', gameplay.core.views.home)
+    path('', include('gameplay.blog.urls')),
+    path('', include('gameplay.core.urls')),
+    path('banner', include('gameplay.banner.urls')),
 
-]
+    path('game/',include('gameplay.game.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),  # < here
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

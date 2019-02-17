@@ -1,0 +1,17 @@
+{% extends 'core/base-blog.html' %}
+{% block container %}
+    <div class="post">
+        {% if post.imagem %}
+            <img class="img-fluid w-100" src="{{ post.imagem.url }}">
+            <hr>
+        {% endif %}
+        {% if post.criado %}
+            <div class="date">
+                {{ post.criado }}
+            </div>
+            <hr>
+        {% endif %}
+        <h1>{{ post.nome }}</h1>
+        <p>{{ post.descricao|safe }}</p>
+    </div>
+{% endblock container %}
